@@ -13,7 +13,8 @@ nbproject
 Thumbs.db
 
 # composer vendor dir
-/vendor
+frontend/vendor
+backend/vendor
 
 # composer itself is not needed
 composer.phar
@@ -29,8 +30,10 @@ phpunit.phar
 # local phpunit config
 /phpunit.xml
 
-tests/_output/*
-tests/_support/_generated
+frontend/tests/_output/*
+frontend/tests/_support/_generated
+backend/tests/_output/*
+backend/tests/_support/_generated
 
 #vagrant folder
 /.vagrant

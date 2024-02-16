@@ -1,0 +1,39 @@
+
+/*HOME PAGE*/
+.sidebar{
+  position: absolute;
+    width: 300px;
+    height: 115%;
+    background-color: grey;
+    left: 50px;
+    top: 275px;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    }
+
+    .py-5{
+        position: absolute;
+        top: 440px;
+        left: 20%;
+    }
+    
+    .header {
+  height: 240px;
+  width: 64%;
+  background-color: lightgrey;
+  left: 430px;
+  position: absolute;
+  top: 275px;
+  
+  display: flex;
+    justify-content: center; 
+    align-items: center; 
+}
+
+
+/*CATALOG PAGE*/
+
+.catalog{
+
+}
