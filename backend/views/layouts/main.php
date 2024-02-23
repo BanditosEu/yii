@@ -20,8 +20,8 @@ $this->registerMetaTag(['charset' => Yii::$app->charset], 'charset');
 $this->registerMetaTag(['name' => 'viewport', 'content' => 'width=device-width, initial-scale=1, shrink-to-fit=no']);
 
 // Koppel het CSS-bestand
-$this->registerCssFile('@web/assets/css/style.css');
-$this->registerCssFile('@web/assets/css/site.css');
+$this->registerCssFile('@web/css/style.css');
+$this->registerCssFile('@web/css/site.css');
 
 // Favicon
 $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii::getAlias('@web/favicon.ico')]);

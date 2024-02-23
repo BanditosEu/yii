@@ -54,28 +54,27 @@ class SiteController extends Controller
             ],
         ];
     }
-      /**
-   * Called by the ajax handler to change the language and
-   * Sets a cookie based on the language selected
-   *
-   */
-  public function actionLanguage()
-  {
-    $lang = Yii::$app->request->post('lang');
-    // If the language "key" is not NULL and exists in the languages array in params.php, change the language and set the cookie
-    if ($lang !== NULL && array_key_exists($lang, Yii::$app->params['languages']))
+    /**
+     * Called by the ajax handler to change the language and
+     * Sets a cookie based on the language selected
+     *
+     */
+    public function actionLanguage()
     {
-      $expire = time() + (60 * 60 * 24 * 365); //  1 year - alter accordingly
-      Yii::$app->language = $lang;
-      $cookie = new yii\web\Cookie([
-        'name' => 'lang',
-        'value' => $lang,
-        'expire' => $expire,
-      ]);
-      Yii::$app->getResponse()->getCookies()->add($cookie);
+        $lang = Yii::$app->request->post('lang');
+        // If the language "key" is not NULL and exists in the languages array in params.php, change the language and set the cookie
+        if ($lang !== NULL && array_key_exists($lang, Yii::$app->params['languages'])) {
+            $expire = time() + (60 * 60 * 24 * 365); //  1 year - alter accordingly
+            Yii::$app->language = $lang;
+            $cookie = new yii\web\Cookie([
+                'name' => 'lang',
+                'value' => $lang,
+                'expire' => $expire,
+            ]);
+            Yii::$app->getResponse()->getCookies()->add($cookie);
+        }
+        Yii::$app->end();
     }
-    Yii::$app->end();
-  }
 
     /**
      * Displays homepage.
@@ -157,28 +156,29 @@ class SiteController extends Controller
 
 
 
-public function actionCart()
-{
-    return $this->render('cart');
+    public function actionCart()
+    {
+        return $this->render('cart');
+    }
+
+    public function actionGegevens()
+    {
+        return $this->render('gegevens');
+    }
+
+    public function actionInlog()
+    {
+        return $this->render('inlog');
+    }
+
+    public function actionBetaal()
+    {
+        return $this->render('Betaal');
+    }
+    public function actionBevestigen()
+    {
+        return $this->render('Bevestigen');
+    }
+
 }
 
-public function actionGegevens()
-{
-    return $this->render('gegevens');
-}
-
-public function actionInlog()
-{
-    return $this->render('inlog');
-}
-
-public function actionBetaal()
-{
-    return $this->render('Betaal');
-}
-public function actionBevestigen()
-{
-    return $this->render('Bevestigen');
-}
-
-}

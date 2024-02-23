@@ -1,46 +1,55 @@
 <?php
-use yii\helpers\Html;
-use yii\widgets\ActiveForm;
-use app\models\PaymentForm;
 
-$this->title = 'Betalen';
+/** @var yii\web\View $this */
+/** @var yii\bootstrap5\ActiveForm $form */
 
-$model = new PaymentForm();
+/** @var app\models\LoginForm $model */
+
+use yii\bootstrap5\ActiveForm;
+use yii\bootstrap5\Html;
+
+$this->title = 'Login';
+$this->params['breadcrumbs'][] = $this->title;
 ?>
+<div class="site-login">
+    <h1><?= Html::encode($this->title) ?></h1>
 
-<nav class="navbar"></nav>
+    <p>Please fill out the following fields to login:</p>
 
-<!-- De rest van je HTML-code -->
+    <div class="row">
+        <div class="col-lg-5">
 
-<div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
-    <div class="betaal">Betaal uw bestelling via:</div>
+            <?php $form = ActiveForm::begin([
+                'id' => 'login-form',
+                'fieldConfig' => [
+                    'template' => "{label}\n{input}\n{error}",
+                    'labelOptions' => ['class' => 'col-lg-1 col-form-label mr-lg-3'],
+                    'inputOptions' => ['class' => 'col-lg-3 form-control'],
+                    'errorOptions' => ['class' => 'col-lg-7 invalid-feedback'],
+                ],
+            ]); ?>
 
-    <?php $form = ActiveForm::begin(); ?>
+            <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
 
-    <?= $form->field($model, 'payment_method')->radio(['value' => 'Ideal'])->label('IDEAL') ?>
+            <?= $form->field($model, 'password')->passwordInput() ?>
 
-    <?= $form->field($model, 'payment_method')->radio(['value' => 'Creditcard'])->label('Creditcard') ?>
+            <?= $form->field($model, 'rememberMe')->checkbox([
+                'template' => "<div class=\"custom-control custom-checkbox\">{input} {label}</div>\n<div class=\"col-lg-8\">{error}</div>",
+            ]) ?>
 
-    <?= $form->field($model, 'payment_method')->radio(['value' => 'Contant_Pin'])->label('Contant of pin (afhalen in de winkel)') ?>
-
-    <?= $form->field($model, 'payment_method')->radio(['value' => 'Overboeking'])->label('Overboeking') ?>
-
-    <?= $form->field($model, 'payment_method')->radio(['value' => 'Paypal'])->label('Paypal') ?>
-
-    <div class="form-group">
-        <?= Html::submitButton('Afronden', ['class' => 'btn btn-primary']) ?>
-    </div>
-
-    <?php ActiveForm::end(); ?>
-</div>
-
-
-
-<div class="d-flex flex-column align-items-start com-color"> 
-            <label class="radio"> 
-                <input type="radio" name="payment_method" value="Ideal" checked>
-                <div class="d-flex align-items-center justify-content-between"> 
-                    <span>IDEAL</span>
-                    <i class="fa fa-plus-circle"></i>
+            <div class="form-group">
+                <div>
+                    <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
                 </div>
-            </label> 
+            </div>
+
+            <?php ActiveForm::end(); ?>
+
+            <div style="color:#999;">
+                You may login with <strong>admin/admin</strong> or <strong>demo/demo</strong>.<br>
+                To modify the username/password, please check out the code <code>app\models\User::$users</code>.
+            </div>
+
+        </div>
+    </div>
+</div>

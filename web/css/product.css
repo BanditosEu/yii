@@ -1,0 +1,8 @@
+.verkoop_vak{
+    position: absolute;
+    height: 280px;
+    width: 37%;
+    background-color: lightgrey;
+    left: 60%;
+    top: 91%;
+}

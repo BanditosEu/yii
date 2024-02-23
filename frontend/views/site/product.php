@@ -6,10 +6,13 @@ use yii\helpers\Html;
 
 $this->title = 'Product';
 ?>
+
+<link href="<?= Yii::$app->request->baseUrl ?>/web/css/product.css" rel="stylesheet" />
  <body>
     
         <!-- Product section-->
-        <section class="py-5">
+        <div class="related_products">
+        <section class="py-6">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="row gx-4 gx-lg-5 align-items-center">
                     <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="https://dummyimage.com/600x700/dee2e6/6c757d.jpg" alt="..." /></div>
@@ -35,6 +38,7 @@ $this->title = 'Product';
                 
             </div>
         </section>
+        </div>
         
         <!-- Description section-->
            <div class="col-md-6 order-md-1">
@@ -49,7 +53,7 @@ $this->title = 'Product';
 
 
             <!-- Related items section-->
-        <section class="py-5 bg-light">
+        <section class="py-7 bg-light">
                         <div class="container px-4 px-lg-5 mt-5">
                             <h2 class="fw-bolder mb-4">Related products</h2>
                             <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
@@ -168,6 +172,7 @@ $this->title = 'Product';
     width: 37%;
     background-color: lightgrey;
     left: 60%;
-    top: 95%;
+    top: 91%;
 }
+
 </style>

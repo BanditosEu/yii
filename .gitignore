@@ -37,3 +37,7 @@ backend/tests/_support/_generated
 
 #vagrant folder
 /.vagrant
+
+
+web/beheer/assets/*
+!web/beheer/assets/.gitkeep
