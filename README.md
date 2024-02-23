@@ -86,8 +86,9 @@ http://localhost/basic/web/
 
 Update your vendor packages
 
-    docker-compose run --rm php composer update --prefer-dist
-    
+    docker-compose run --rm php composer update --prefer-dist -d backend
+    docker-compose run --rm php composer update --prefer-dist -d frontend
+
 Run the installation triggers (creating cookie validation code)
 
     docker-compose run --rm php composer install    
